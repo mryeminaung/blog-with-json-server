@@ -10,21 +10,23 @@ const NewBlog = () => {
     const [newBlog, setNewBlog] = useState({
         title: "",
         body: "",
-        blog_img: "",
         category: "",
-        author: auth.id,
+        user_id: auth.id,
     });
 
     const addBlog = async () => {
-        axios.post("http://localhost:8000/blogs", newBlog);
+        axios.post("http://localhost:8000/blogs", {
+            ...newBlog,
+            blog_img: "",
+            created_at: "",
+        });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(auth);
-        // console.log(newBlog);
-        // addBlog();
-        // navigate("/blogs");
+        console.log(newBlog);
+        addBlog();
+        navigate("/blogs");
     };
 
     const handleNewBlog = (e) => {

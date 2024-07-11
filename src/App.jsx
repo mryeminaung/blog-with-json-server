@@ -25,9 +25,9 @@ const App = () => {
 
                         <Route path="blogs" element={<BlogList />} />
                         <Route path="blogs/:blogId" element={<BlogDetail />} />
-                        <Route path="new-blog" element={<NewBlog />} />
 
                         <Route path="user" element={<UserLayout />}>
+                            <Route path="new-blog" element={<NewBlog />} />
                             <Route path="dashboard" element={<Dashboard />} />
                             <Route path="settings" element={<Settings />} />
                             <Route path="logout" element={<LogOut />} />

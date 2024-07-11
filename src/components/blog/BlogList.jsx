@@ -34,30 +34,26 @@ const BlogList = () => {
 
     return (
         <>
-            <div className="flex items-center px-3 py-5 gap-x-2">
+            <div className="flex items-center  py-5 gap-x-2">
                 <button
-                    className={`text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
-                    onClick={() => handleFilterChange("category", "health")}
+                    className={` ${
+                        typeFilter === "frontend"
+                            ? "bg-blue-800 text-white"
+                            : "text-blue-700"
+                    } hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
+                    onClick={() => handleFilterChange("category", "frontend")}
                 >
-                    Health
+                    Frontend
                 </button>
                 <button
-                    className={`text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
-                    onClick={() => handleFilterChange("category", "football")}
+                    className={`${
+                        typeFilter === "backend"
+                            ? "bg-blue-800 text-white"
+                            : "text-blue-700"
+                    } hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
+                    onClick={() => handleFilterChange("category", "backend")}
                 >
-                    Football
-                </button>
-                <button
-                    className={`text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
-                    onClick={() => handleFilterChange("category", "it")}
-                >
-                    IT
-                </button>
-                <button
-                    className={`text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 `}
-                    onClick={() => handleFilterChange("category", "beauty")}
-                >
-                    Beauty
+                    Backend
                 </button>
                 {typeFilter && (
                     <button
@@ -68,7 +64,7 @@ const BlogList = () => {
                     </button>
                 )}
             </div>
-            <div className="flex flex-wrap justify-around py-3 gap-6">
+            <div className="flex flex-wrap mx-auto items-center md:justify-center lg:justify-start py-3 pb-10 gap-8">
                 {filteredBlogs &&
                     filteredBlogs.map((blog) => (
                         <BlogCard
