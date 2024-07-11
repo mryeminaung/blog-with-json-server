@@ -1,87 +1,40 @@
 {
   "users": [
     {
-      "id": "a9e1",
-      "name": "Oliver",
-      "email": "oliver@mail.com",
-      "password": "1234",
-      "profile_url": "https://i.pinimg.com/originals/02/c5/a8/02c5a82909a225411008d772ee6b7d62.png"
+      "id": "eadc",
+      "username": "kuremove",
+      "email": "fasapym@mailinator.com",
+      "password": "zopumiho",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
     },
     {
-      "id": "9ea9",
-      "name": "Nolan Travis",
-      "email": "dapolomeq@mailinator.com",
-      "password": "11",
-      "profile_url": ""
+      "id": "2a97",
+      "username": "bonozi",
+      "email": "vuror@mailinator.com",
+      "password": "ciwizemo",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
     },
     {
-      "id": "ee14",
-      "name": "Ria Garza",
-      "email": "zudylosu@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "profile_url": ""
+      "id": "01ef",
+      "username": "lexuvu",
+      "email": "pevuzeh@mailinator.com",
+      "password": "123",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
     },
     {
-      "id": "6735",
-      "name": "Lee Gibson",
-      "email": "tiju@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "profile_url": ""
+      "id": "dd27",
+      "username": "fasd",
+      "email": "ninja@mail.com",
+      "password": "fsdfafds",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
+    },
+    {
+      "id": "bde2",
+      "username": "cazoz",
+      "email": "test@mail.com",
+      "password": "123",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
     }
   ],
-  "blogs": [
-    {
-      "id": "2",
-      "title": "Learn Health",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.",
-      "blog_img": "https://images.unsplash.com/photo-1707535484481-9be3f889e49c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDN8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D",
-      "category": "Health",
-      "created_at": "2/Feb/2023",
-      "author": "Bob"
-    },
-    {
-      "id": "3",
-      "title": "Learn Football",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.",
-      "blog_img": "https://images.unsplash.com/photo-1706820642350-805585dd2adc?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Football",
-      "created_at": "2/Feb/2023",
-      "author": "Oliver"
-    },
-    {
-      "id": "5",
-      "title": "Learn Beauty",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.",
-      "blog_img": "https://plus.unsplash.com/premium_photo-1675249004119-e3c7f18f5b9b?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Beauty",
-      "created_at": "2/Feb/2023",
-      "author": "Oliver"
-    },
-    {
-      "id": "7",
-      "title": "Learn IT",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.",
-      "blog_img": "https://images.unsplash.com/photo-1707570071990-d51f6d902d91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "IT",
-      "created_at": "2/Feb/2023",
-      "author": "Oliver"
-    },
-    {
-      "id": "9",
-      "title": "Learn Beauty",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.Aliquam deleniti reiciendis.",
-      "blog_img": "https://images.unsplash.com/photo-1682695795931-a546abdb6733?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Beauty",
-      "created_at": "2/Feb/2023",
-      "author": "Oliver"
-    },
-    {
-      "id": "24c8",
-      "title": "Dolore labore dolor ",
-      "body": "Enim similique ut et",
-      "blog_img": "https://plus.unsplash.com/premium_photo-1675249004119-e3c7f18f5b9b?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "football",
-      "author": "Oliver"
-    }
-  ]
+  "blogs": []
 }

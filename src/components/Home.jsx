@@ -11,7 +11,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="my-3">
+    <div className="my-3 hidden">
       <div className="">
         <h2 className="text-3xl font-semibold border-b-2 pb-2 border-b-slate-400">
           Latest Blogs

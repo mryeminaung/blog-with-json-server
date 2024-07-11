@@ -3,23 +3,27 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [auth, setAuth] = useState(
-    JSON.parse(localStorage.getItem("authUser")) || null
-  );
+    const [auth, setAuth] = useState(
+        JSON.parse(localStorage.getItem("authUser")) || null
+    );
 
-  const logOut = () => {
-    setAuth(null);
-  };
+    const logIn = (user) => {
+        setAuth(user);
+    };
 
-  useEffect(() => {
-    localStorage.setItem("authUser", JSON.stringify(auth));
-  }, [auth]);
+    const logOut = () => {
+        setAuth(null);
+    };
 
-  return (
-    <AuthContext.Provider value={{ auth, setAuth, logOut }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    useEffect(() => {
+        localStorage.setItem("authUser", JSON.stringify(auth));
+    }, [auth]);
+
+    return (
+        <AuthContext.Provider value={{ auth, setAuth, logOut, logIn }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 export const useAuthContext = () => useContext(AuthContext);
