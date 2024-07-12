@@ -64,7 +64,7 @@ const BlogList = () => {
                     </button>
                 )}
             </div>
-            <div className="flex flex-wrap mx-auto items-center md:justify-center lg:justify-start py-3 pb-10 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto justify-center py-3 pb-10 gap-8">
                 {filteredBlogs &&
                     filteredBlogs.map((blog) => (
                         <BlogCard

@@ -11,6 +11,7 @@ import NewBlog from "./components/blog/NewBlog";
 import UserLayout from "./layout/UserLayout";
 import LogOut from "./components/auth/LogOut";
 import Settings from "./components/user/Settings";
+import BlogLayout from "./layout/BlogLayout";
 
 const App = () => {
     return (
@@ -24,7 +25,9 @@ const App = () => {
                         <Route path="login" element={<Login />} />
 
                         <Route path="blogs" element={<BlogList />} />
-                        <Route path="blogs/:blogId" element={<BlogDetail />} />
+                        <Route path="blogs/:blogId" element={<BlogLayout />}>
+                            <Route index element={<BlogDetail />} />
+                        </Route>
 
                         <Route path="user" element={<UserLayout />}>
                             <Route path="new-blog" element={<NewBlog />} />

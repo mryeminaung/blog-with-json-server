@@ -18,6 +18,7 @@ const NewBlog = () => {
         axios.post("http://localhost:8000/blogs", {
             ...newBlog,
             blog_img: "",
+            slug: newBlog.title.split(" ").join("-").toLowerCase(),
             created_at: "",
         });
     };
