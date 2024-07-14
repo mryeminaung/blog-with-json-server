@@ -8,7 +8,7 @@ const BlogDetail = () => {
     const navigate = useNavigate();
     const { blog, author } = location.state;
     console.log(author);
-    const search = `?${location.state?.search}` || "";
+    const search = `${location.state?.search}` || "";
     const type = location.state?.type || "all";
 
     const handleDelete = (id) => {
@@ -23,7 +23,7 @@ const BlogDetail = () => {
             <>
                 {/* return pre page with the type filter effect */}
                 <Link
-                    to={`..${search}`}
+                    to={`..${type != "all" ? `?${search}` : ""}`}
                     relative="path"
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
@@ -83,7 +83,7 @@ const BlogDetail = () => {
                         )}
                     </div>
                     <div className="px-3">
-                        <h2 className="text-3xl font-bold">{blog.title}</h2>
+                        <h2 className="text-2xl font-bold">{blog.title}</h2>
                         <p className="text-xl">{blog.body}</p>
                     </div>
                 </div>

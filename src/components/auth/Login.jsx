@@ -23,7 +23,7 @@ const Login = () => {
                 (user) =>
                     user.email == data.email && user.password == data.password
             );
-            logIn(authUser);
+            authUser ? logIn(authUser) : navigate("/login");
         });
         setData({
             email: "",
