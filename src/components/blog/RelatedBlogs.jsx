@@ -15,7 +15,6 @@ const RelatedBlogs = () => {
     useEffect(() => {
         axios.get("http://localhost:8000/blogs").then((res) => {
             const blogs = res.data.filter((blog) => blog.slug !== blogId);
-            console.log(blogs, blogs.slice(5, 10));
             setRelatedBlogs(blogs.slice(0, 3));
         });
     }, [blogId]);

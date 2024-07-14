@@ -12,6 +12,9 @@ import UserLayout from "./layout/UserLayout";
 import LogOut from "./components/auth/LogOut";
 import Settings from "./components/user/Settings";
 import BlogLayout from "./layout/BlogLayout";
+import SettingsLayout from "./layout/SettingsLayout";
+import ChangePassword from "./components/user/ChangePassword";
+import SocialLinks from "./components/user/SocialLinks";
 
 const App = () => {
     return (
@@ -32,7 +35,17 @@ const App = () => {
                         <Route path="user" element={<UserLayout />}>
                             <Route path="new-blog" element={<NewBlog />} />
                             <Route path="dashboard" element={<Dashboard />} />
-                            <Route path="settings" element={<Settings />} />
+                            <Route path="settings" element={<SettingsLayout />}>
+                                <Route index element={<Settings />} />
+                                <Route
+                                    path="change-password"
+                                    element={<ChangePassword />}
+                                />
+                                <Route
+                                    path="social-links"
+                                    element={<SocialLinks />}
+                                />
+                            </Route>
                             <Route path="logout" element={<LogOut />} />
                         </Route>
                     </Route>

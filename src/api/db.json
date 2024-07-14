@@ -32,7 +32,7 @@
       "id": "bde2",
       "username": "cazoz",
       "email": "test@mail.com",
-      "password": "123",
+      "password": "nixenixi",
       "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
     },
     {
@@ -45,16 +45,6 @@
   ],
   "blogs": [
     {
-      "id": "da78",
-      "title": "Est dolorum cillum e",
-      "body": "Deserunt exercitatio",
-      "category": "frontend",
-      "user_id": "bde2",
-      "blog_img": "",
-      "slug": "est-dolorum-cillum-e",
-      "created_at": ""
-    },
-    {
       "id": "8b55",
       "title": "Tempora laudantium ",
       "body": "Hic magnam corrupti",
@@ -62,46 +52,6 @@
       "user_id": "bde2",
       "blog_img": "",
       "slug": "tempora-laudantium-",
-      "created_at": ""
-    },
-    {
-      "id": "3a47",
-      "title": "Dolores ex nihil vol",
-      "body": "Veniam illo sint ob",
-      "category": "backend",
-      "user_id": "bde2",
-      "blog_img": "",
-      "slug": "dolores-ex-nihil-vol",
-      "created_at": ""
-    },
-    {
-      "id": "dede",
-      "title": "Irure qui dolorum es",
-      "body": "Optio commodi nisi ",
-      "category": "backend",
-      "user_id": "bde2",
-      "blog_img": "",
-      "slug": "irure-qui-dolorum-es",
-      "created_at": ""
-    },
-    {
-      "id": "50f9",
-      "title": "Mollit et rerum ipsa",
-      "body": "Voluptates cillum vo",
-      "category": "backend",
-      "user_id": "bde2",
-      "blog_img": "",
-      "slug": "mollit-et-rerum-ipsa",
-      "created_at": ""
-    },
-    {
-      "id": "5dfa",
-      "title": "Blanditiis rerum pro",
-      "body": "Non voluptatem simil",
-      "category": "backend",
-      "user_id": "bde2",
-      "blog_img": "",
-      "slug": "blanditiis-rerum-pro",
       "created_at": ""
     },
     {

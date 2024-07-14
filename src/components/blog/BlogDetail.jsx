@@ -14,7 +14,7 @@ const BlogDetail = () => {
     const handleDelete = (id) => {
         if (confirm("Are you sure to delete?")) {
             axios.delete(`http://localhost:8000/blogs/${id}`);
-            navigate(`/blogs${search}`);
+            navigate(`/blogs?${search}`);
         }
     };
 
@@ -68,7 +68,7 @@ const BlogDetail = () => {
                             </div>
                         </div>
 
-                        {auth === blog.author && (
+                        {auth.id === blog.user_id && (
                             <div className="space-x-3">
                                 <button className="px-3 py-1 bg-slate-400 rounded-md">
                                     Edit

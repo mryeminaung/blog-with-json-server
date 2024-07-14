@@ -32,7 +32,7 @@ const Navbar = () => {
                             <div className="flex items-center space-x-3">
                                 <button
                                     type="button"
-                                    onClick={()=> navigate("user/new-blog")}
+                                    onClick={() => navigate("user/new-blog")}
                                     className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
                                     Create
@@ -76,7 +76,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink
                                             to="user/settings"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                            className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                         >
                                             Settings
                                         </NavLink>
