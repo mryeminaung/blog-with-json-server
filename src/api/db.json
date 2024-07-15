@@ -1,46 +1,15 @@
 {
   "users": [
     {
-      "id": "eadc",
-      "username": "kuremove",
-      "email": "fasapym@mailinator.com",
-      "password": "zopumiho",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    },
-    {
-      "id": "2a97",
-      "username": "bonozi",
-      "email": "vuror@mailinator.com",
-      "password": "ciwizemo",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    },
-    {
-      "id": "01ef",
-      "username": "lexuvu",
-      "email": "pevuzeh@mailinator.com",
-      "password": "123",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    },
-    {
-      "id": "dd27",
-      "username": "fasd",
-      "email": "ninja@mail.com",
-      "password": "fsdfafds",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    },
-    {
       "id": "bde2",
       "username": "cazoz",
       "email": "test@mail.com",
-      "password": "nixenixi",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    },
-    {
-      "id": "5289",
-      "username": "Sister39",
-      "email": "your.email+fakedata38067@gmail.com",
-      "password": "6QlVLhdpEZGYkxr",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
+      "password": "thanks123",
+      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a",
+      "social_profiles": {
+        "github": "https://www.vov.info",
+        "facebook": "https://www.diwypofozyjat.co.uk"
+      }
     }
   ],
   "blogs": [

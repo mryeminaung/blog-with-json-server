@@ -14,7 +14,7 @@ import Settings from "./components/user/Settings";
 import BlogLayout from "./layout/BlogLayout";
 import SettingsLayout from "./layout/SettingsLayout";
 import ChangePassword from "./components/user/ChangePassword";
-import SocialLinks from "./components/user/SocialLinks";
+import SocialProfiles from "./components/user/SocialProfiles";
 
 const App = () => {
     return (
@@ -42,8 +42,8 @@ const App = () => {
                                     element={<ChangePassword />}
                                 />
                                 <Route
-                                    path="social-links"
-                                    element={<SocialLinks />}
+                                    path="social-profiles"
+                                    element={<SocialProfiles />}
                                 />
                             </Route>
                             <Route path="logout" element={<LogOut />} />
