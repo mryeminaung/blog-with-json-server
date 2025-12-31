@@ -1,13 +1,13 @@
 import { IsLogin } from "@/lib/utils";
 import { Navigate, Outlet } from "react-router-dom";
 
-export default function ProtectedRoute() {
+export default function GuestRoute() {
 	const loggedIn = IsLogin();
 
-	if (!loggedIn) {
+	if (loggedIn) {
 		return (
 			<Navigate
-				to="/login"
+				to="/blogs/featured-blogs"
 				replace
 			/>
 		);

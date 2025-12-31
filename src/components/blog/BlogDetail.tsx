@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../context/AuthContext";
+// import { useAuthContext } from "../../context/AuthContext";
 
 const BlogDetail = () => {
 	const { auth } = useAuthContext();

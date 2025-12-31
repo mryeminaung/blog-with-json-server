@@ -1,10 +1,7 @@
-import {
-	Link,
-	Navbar,
-	NavbarBrand,
-	NavbarContent,
-	NavbarItem,
-} from "@heroui/react";
+import { IsLogin } from "@/lib/utils";
+import useAuthStore from "@/stores/useAuthStore";
+import { Button } from "@heroui/button";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
 import { NavLink } from "react-router-dom";
 
 export const AcmeLogo = () => {
@@ -25,48 +22,67 @@ export const AcmeLogo = () => {
 };
 
 export default function MainNav() {
+	const loggedIn = IsLogin();
+	const setAuthUser = useAuthStore((state) => state.setAuthUser);
+
+	const handleLogout = () => {
+		setAuthUser(null);
+	};
+
 	return (
 		<Navbar shouldHideOnScroll={true}>
 			<NavbarBrand>
 				<AcmeLogo />
-				<p className="font-bold text-inherit">PersonalBLOG</p>
+				<p className="font-bold text-inherit text-xl">PersonalBLOG</p>
 			</NavbarBrand>
 			<NavbarContent
-				className="hidden gap-4"
+				className="gap-4"
 				justify="center">
-				<NavbarItem>
-					<Link
-						color="foreground"
-						href="#">
-						Home
-					</Link>
-				</NavbarItem>
-				<NavbarItem isActive>
-					<Link
-						aria-current="page"
-						href="#">
-						Blogs
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link
-						color="foreground"
-						href="/login">
-						Integrations
-					</Link>
-				</NavbarItem>
+				{loggedIn && (
+					<>
+						<NavbarItem>
+							<NavLink
+								color="foreground"
+								to="/blogs/featured-blogs">
+								Home
+							</NavLink>
+						</NavbarItem>
+						<NavbarItem isActive>
+							<NavLink
+								aria-current="page"
+								to="/blogs">
+								Blogs
+							</NavLink>
+						</NavbarItem>
+					</>
+				)}
 			</NavbarContent>
 			<NavbarContent justify="end">
-				<NavbarItem className="hidden lg:flex">
-					<NavLink to="/login">Login</NavLink>
-				</NavbarItem>
-				<NavbarItem>
-					<NavLink
-						to="/register"
-						className="bg-primary-500 text-center text-white px-5 py-1.5 rounded-full">
-						Sign Up
-					</NavLink>
-				</NavbarItem>
+				{loggedIn ? (
+					<NavbarItem>
+						<Button
+							onClick={handleLogout}
+							color="primary"
+							variant="ghost"
+							className="text-center px-5">
+							Log Out
+						</Button>
+					</NavbarItem>
+				) : (
+					<>
+						<NavbarItem className="hidden lg:flex">
+							<NavLink to="/login">Login</NavLink>
+						</NavbarItem>
+						<NavbarItem>
+							<Button
+								color="primary"
+								variant="ghost"
+								className="text-center px-5">
+								Sign Up
+							</Button>
+						</NavbarItem>
+					</>
+				)}
 			</NavbarContent>
 		</Navbar>
 	);

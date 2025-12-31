@@ -14,10 +14,12 @@
 		"@heroui/button": "^2.2.29",
 		"@heroui/navbar": "^2.2.27",
 		"@heroui/react": "^2.8.7",
+		"@hookform/resolvers": "^5.2.2",
 		"@tailwindcss/postcss": "^4.1.18",
 		"@tailwindcss/vite": "^4.1.18",
 		"axios": "^1.13.2",
 		"bcrypt": "^6.0.0",
+		"bcryptjs": "^3.0.3",
 		"framer-motion": "^12.23.26",
 		"json-server": "^1.0.0-beta.3",
 		"react": "^19.2.3",
@@ -28,6 +30,7 @@
 		"zustand": "^5.0.9"
 	},
 	"devDependencies": {
+		"@types/bcryptjs": "^2.4.6",
 		"@types/node": "^25.0.3",
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",

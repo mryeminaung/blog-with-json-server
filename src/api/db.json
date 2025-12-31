@@ -1,14 +1,31 @@
 {
-  "users": [
-    {
-      "id": "b744",
-      "username": "gypid",
-      "email": "kazomitoz@mailinator.com",
-      "password": "password",
-      "avatar": "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?w=826&t=st=1720630523~exp=1720631123~hmac=817ae1dfec97a1577e7bfcb487cef7c8394ad0fe92ba776dfa9257798606065a"
-    }
-  ],
-  "blogs": [],
-  "comments": [],
-  "category": []
+	"users": [
+		{
+			"id": "7ad1",
+			"fullName": "Idona Wells",
+			"email": "loroqizi@mailinator.com",
+			"password": "$2b$10$Qoupr0.ZpBE/OW1aWkoVoub39tSIHLocMxyAkDjZa4uhG3q9T9/Zq"
+		},
+		{
+			"id": "6054",
+			"fullName": "Rigel Alford",
+			"email": "lepexoqo@mailinator.com",
+			"password": "$2b$10$Fi5RCuhPnn5jVq6E2vM/kuT1MRcoT4UkJC97n.JqY7DZzXeP1nYxO"
+		},
+		{
+			"id": "02a7",
+			"fullName": "Vernon Livingston",
+			"email": "suzyseq@mailinator.com",
+			"password": "$2b$10$OausUfG4I.OVLdeW.hyySe2ZWXgpaGRzSAH1oNK6IQL/fWViU/MPK"
+		},
+		{
+			"id": "ab4d",
+			"fullName": "Mira Meyers",
+			"email": "tusoquz@mailinator.com",
+			"password": "$2b$10$VAywsOAWFbEew0ambAt4YugTOi2kaVLgw6yDRHFh9Qwopk6CNcQ8q"
+		}
+	],
+	"blogs": [],
+	"comments": [],
+	"category": []
 }
