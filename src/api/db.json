@@ -1,72 +1,204 @@
 {
-  "users": [
-    {
-      "id": "7ad1",
-      "fullName": "Idona Wells",
-      "email": "loroqizi@mailinator.com",
-      "password": "$2b$10$Qoupr0.ZpBE/OW1aWkoVoub39tSIHLocMxyAkDjZa4uhG3q9T9/Zq"
-    },
-    {
-      "id": "03d7",
-      "fullName": "Brandon Fuentes",
-      "email": "xykaq@mailinator.com",
-      "password": "$2b$10$xynE/L78rcC4ktthnMJAsel8mXT3.92LCsg.nEnC76tFSjy1av6Nq"
-    }
-  ],
-  "blogs": [
-    {
-      "id": "659e",
-      "title": "Mastering React 19: What's New?",
-      "content": "React 19 has officially landed with some game-changing features. From the new 'use' hook for handling promises to the improved Actions API, development is becoming much more intuitive. In this post, we explore how these changes simplify state management and reduce boilerplate code for modern web applications.",
-      "slug": "mastering-react-19:-what's-new?",
-      "categoryId": "1",
-      "createdAt": "2026-01-01T09:57:11.914Z",
-      "userId": "7ad1"
-    },
-    {
-      "id": "8772",
-      "title": "The Future of Frontend Tooling",
-      "content": "Gone are the days of slow Webpack builds. With tools like Vite and Turbopack taking over, our dev servers start in milliseconds. This post dives into the Rust-based ecosystem that is making our build tools faster and our deployment pipelines more efficient than ever before.",
-      "slug": "the-future-of-frontend-tooling",
-      "categoryId": "6",
-      "createdAt": "2026-01-01T10:33:34.438Z",
-      "userId": "7ad1"
-    },
-    {
-      "id": "273e",
-      "title": "Why I Switched to Tailwind CSS",
-      "content": "Utility-first CSS used to look messy to me, but after building three major projects with Tailwind, I'm never going back. The speed of development and the ability to maintain a consistent design system without writing custom CSS classes is a superpower. Let's look at the performance benefits and developer experience improvements.",
-      "slug": "why-i-switched-to-tailwind-css",
-      "categoryId": "5",
-      "createdAt": "2026-01-01T10:34:51.264Z",
-      "userId": "7ad1"
-    }
-  ],
-  "comments": [],
-  "categories": [
-    {
-      "id": "1",
-      "name": "Technology"
-    },
-    {
-      "id": "2",
-      "name": "Health"
-    },
-    {
-      "id": "3",
-      "name": "Travel"
-    },
-    {
-      "id": "4",
-      "name": "Food"
-    },
-    {
-      "id": "5",
-      "name": "Lifestyle"
-    },
-    {
-      "id": "6",
-      "name": "General"
-    }
-  ]
+	"users": [
+		{
+			"id": "7ad1",
+			"fullName": "Idona Wells",
+			"email": "loroqizi@mailinator.com",
+			"password": "$2b$10$Qoupr0.ZpBE/OW1aWkoVoub39tSIHLocMxyAkDjZa4uhG3q9T9/Zq"
+		},
+		{
+			"id": "03d7",
+			"fullName": "Brandon Fuentes",
+			"email": "xykaq@mailinator.com",
+			"password": "$2b$10$xynE/L78rcC4ktthnMJAsel8mXT3.92LCsg.nEnC76tFSjy1av6Nq"
+		},
+		{
+			"id": "7c1b",
+			"fullName": "Leslie Cobb",
+			"email": "vetumiv@mailinator.com",
+			"password": "$2b$10$TzEahItz/fTHzc2.dNgrtOq8QppviEQqoY4u7CyH9Nm0rST.WtBPe"
+		}
+	],
+	"blogs": [
+		{
+			"id": "273e",
+			"title": "Why I Switched to Tailwind CSS",
+			"content": "Utility-first CSS used to look messy to me, but after building three major projects with Tailwind, I'm never going back. The speed of development and the ability to maintain a consistent design system without writing custom CSS classes is a superpower. Let's look at the performance benefits and developer experience improvements.",
+			"slug": "why-i-switched-to-tailwind-css",
+			"categoryId": "5",
+			"createdAt": "2026-01-01T10:34:51.264Z",
+			"userId": "7ad1"
+		},
+		{
+			"id": "a101",
+			"title": "Understanding REST API Design",
+			"content": "A well-designed REST API is predictable, consistent, and easy to consume. In this article, we explore resource naming, HTTP verbs, status codes, and versioning strategies.",
+			"slug": "understanding-rest-api-design",
+			"categoryId": "3",
+			"createdAt": "2026-01-02T08:12:10.000Z",
+			"userId": "9f2a"
+		},
+		{
+			"id": "a102",
+			"title": "Laravel Validation Best Practices",
+			"content": "Validation is your first line of defense. From Form Requests to custom error messages, this guide covers clean and scalable validation patterns in Laravel.",
+			"slug": "laravel-validation-best-practices",
+			"categoryId": "4",
+			"createdAt": "2026-01-02T09:25:44.000Z",
+			"userId": "9f2a"
+		},
+		{
+			"id": "a103",
+			"title": "React State Management: When to Keep It Simple",
+			"content": "Not every app needs Redux or Zustand. Sometimes useState and useContext are enough. This post helps you decide based on app size and complexity.",
+			"slug": "react-state-management-keep-it-simple",
+			"categoryId": "1",
+			"createdAt": "2026-01-02T11:02:31.000Z",
+			"userId": "9f2a"
+		},
+		{
+			"id": "a104",
+			"title": "Database Indexing Explained",
+			"content": "Indexes can dramatically improve query performance, but misuse can slow writes. Learn how B-tree indexes work and when to use them.",
+			"slug": "database-indexing-explained",
+			"categoryId": "5",
+			"createdAt": "2026-01-02T13:40:18.000Z",
+			"userId": "9f2a"
+		},
+		{
+			"id": "a105",
+			"title": "Monolith vs Microservices",
+			"content": "Microservices are not a silver bullet. We compare monoliths and microservices in terms of scalability, team size, and operational complexity.",
+			"slug": "monolith-vs-microservices",
+			"categoryId": "6",
+			"createdAt": "2026-01-02T16:10:05.000Z",
+			"userId": "9f2a"
+		},
+		{
+			"id": "b201",
+			"title": "Tailwind CSS vs Traditional CSS",
+			"content": "After working with both approaches, Tailwind offers faster iteration while traditional CSS provides familiarity. The right choice depends on team size and project scope.",
+			"slug": "tailwind-vs-traditional-css",
+			"categoryId": "5",
+			"createdAt": "2026-01-02T09:10:00.000Z",
+			"userId": "7ad1"
+		},
+		{
+			"id": "b202",
+			"title": "Design Systems That Scale",
+			"content": "A scalable design system reduces inconsistency and speeds up development. Tokens, spacing rules, and reusable components are key.",
+			"slug": "design-systems-that-scale",
+			"categoryId": "5",
+			"createdAt": "2026-01-02T10:00:00.000Z",
+			"userId": "7ad1"
+		},
+		{
+			"id": "b203",
+			"title": "Why Utility-First CSS Works",
+			"content": "Utility-first CSS shifts decisions from stylesheets to markup, reducing context switching and eliminating unused CSS.",
+			"slug": "why-utility-first-css-works",
+			"categoryId": "5",
+			"createdAt": "2026-01-02T11:20:00.000Z",
+			"userId": "7ad1"
+		},
+		{
+			"id": "b204",
+			"title": "Frontend Performance Basics",
+			"content": "Performance starts with small optimizations: image sizes, code splitting, and avoiding unnecessary re-renders.",
+			"slug": "frontend-performance-basics",
+			"categoryId": "1",
+			"createdAt": "2026-01-02T12:45:00.000Z",
+			"userId": "7ad1"
+		},
+		{
+			"id": "b205",
+			"title": "Getting Started with Backend APIs",
+			"content": "APIs are the backbone of modern applications. Understanding requests, responses, and authentication is essential.",
+			"slug": "getting-started-with-backend-apis",
+			"categoryId": "3",
+			"createdAt": "2026-01-02T09:30:00.000Z",
+			"userId": "03d7"
+		},
+		{
+			"id": "b206",
+			"title": "Authentication vs Authorization",
+			"content": "Authentication confirms who you are, while authorization defines what you can access. Confusing them leads to security issues.",
+			"slug": "authentication-vs-authorization",
+			"categoryId": "3",
+			"createdAt": "2026-01-02T10:40:00.000Z",
+			"userId": "03d7"
+		},
+		{
+			"id": "b207",
+			"title": "Common API Security Mistakes",
+			"content": "From exposing sensitive data to missing rate limits, these mistakes can compromise your system.",
+			"slug": "common-api-security-mistakes",
+			"categoryId": "3",
+			"createdAt": "2026-01-02T11:55:00.000Z",
+			"userId": "03d7"
+		},
+		{
+			"id": "b208",
+			"title": "Database Design for Beginners",
+			"content": "Good database design starts with understanding relationships, normalization, and real-world data usage.",
+			"slug": "database-design-for-beginners",
+			"categoryId": "2",
+			"createdAt": "2026-01-02T13:15:00.000Z",
+			"userId": "03d7"
+		},
+		{
+			"id": "b209",
+			"title": "Why Indexes Matter",
+			"content": "Indexes improve read performance but come with trade-offs. Knowing when to add them is crucial.",
+			"slug": "why-indexes-matter",
+			"categoryId": "2",
+			"createdAt": "2026-01-02T14:50:00.000Z",
+			"userId": "03d7"
+		},
+		{
+			"id": "b210",
+			"title": "Burnout Is a Productivity Problem",
+			"content": "Working longer hours does not equal better results. Sustainable productivity requires rest.",
+			"slug": "burnout-is-a-productivity-problem",
+			"categoryId": "6",
+			"createdAt": "2026-01-02T09:00:00.000Z",
+			"userId": "7c1b"
+		},
+		{
+			"id": "b211",
+			"title": "Deep Work in a Noisy World",
+			"content": "Distraction is the enemy of quality output. Deep work helps reclaim focus and meaning.",
+			"slug": "deep-work-in-a-noisy-world",
+			"categoryId": "6",
+			"createdAt": "2026-01-02T10:20:00.000Z",
+			"userId": "7c1b"
+		}
+	],
+	"comments": [],
+	"categories": [
+		{
+			"id": "1",
+			"name": "Technology"
+		},
+		{
+			"id": "2",
+			"name": "Health"
+		},
+		{
+			"id": "3",
+			"name": "Travel"
+		},
+		{
+			"id": "4",
+			"name": "Food"
+		},
+		{
+			"id": "5",
+			"name": "Lifestyle"
+		},
+		{
+			"id": "6",
+			"name": "General"
+		}
+	]
 }

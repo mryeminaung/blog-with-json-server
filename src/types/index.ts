@@ -25,7 +25,7 @@ interface BlogInfoType {
 	title: string;
 	content: string;
 	slug: string;
-	category: string;
-	author: string;
+	category: { id: string; name: string };
+	author: { id: string; fullName: string };
 	createdAt: string;
 }

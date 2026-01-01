@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
 import SettingMenu from "@/components/user/SettingMenu";
+import { Outlet } from "react-router-dom";
 
 const SettingsLayout = () => {
 	return (

@@ -15,8 +15,8 @@ export default function BlogCard({ blog }: { blog: BlogInfoType }) {
 				radius="sm"
 				className="object-contain h-52w-full"
 			/>
-			<span className="absolute right-3 top-3 bg-gray-500 rounded-lg px-3 py-1 text-white text-[10px] tracking-wider z-999 uppercase">
-				{blog.category}
+			<span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md rounded-lg px-3 py-1 text-white text-[10px] tracking-widest z-10 uppercase font-bold">
+				{blog.category.name}
 			</span>
 
 			<div className="p-3">
@@ -31,7 +31,9 @@ export default function BlogCard({ blog }: { blog: BlogInfoType }) {
 							className="object-fit w-8 h-8 border  border-blue-500 rounded-full"
 						/>
 						<div className="flex flex-col text-[14px] -space-y-1">
-							<span className="font-semibold capitalize">{blog.author}</span>
+							<span className="font-semibold capitalize">
+								{blog.author.fullName}
+							</span>
 							<div className="flex items-center justify-end">
 								<span className="">{blog.createdAt}</span>
 							</div>
@@ -40,7 +42,8 @@ export default function BlogCard({ blog }: { blog: BlogInfoType }) {
 
 					<Link
 						to={`/blogs/${blog.slug}`}
-						className="inline-block px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out shadow-sm hover:shadow-md">
+						state={{ blog, author: blog.author }}
+						className="inline-block px-4 py-2 text-[11px] font-semibold text-blue-600 bg-blue-50 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out shadow-sm hover:shadow-md">
 						Read more
 					</Link>
 				</div>

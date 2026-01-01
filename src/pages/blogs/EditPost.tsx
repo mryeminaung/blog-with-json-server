@@ -10,30 +10,23 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const CreatePostSchema = z.object({
-	title: z
-		.string()
-		.min(10, { message: "Title must be at least 10 characters long" })
-		.max(100, { message: "Title is too long (max 100 characters)" }),
-	content: z
-		.string()
-		.min(10, { message: "Content is too short (minimum 10 characters)" }),
+const EditPostSchema = z.object({
+	title: z.string(),
+	content: z.string().min(10, ""),
 	slug: z.string(),
-	categoryId: z.string().min(1, { message: "Please select a category" }),
+	categoryId: z.string(),
 	createdAt: z.string().optional(),
-	userId: z
-		.string()
-		.min(1, { message: "User ID is missing. Please log in again." }),
+	userId: z.string(),
 });
 
-type CreatePostInput = z.infer<typeof CreatePostSchema>;
+type EditPostInput = z.infer<typeof EditPostSchema>;
 
 type CategoryType = {
 	id: number;
 	name: string;
 };
 
-export default function CreatePost() {
+export default function EditPost() {
 	const [categories, setCategories] = useState<CategoryType[] | null>([]);
 	const authUser = useAuthStore((state) => state.authUser);
 
@@ -42,13 +35,13 @@ export default function CreatePost() {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<CreatePostInput>({
-		resolver: zodResolver(CreatePostSchema),
+	} = useForm<EditPostInput>({
+		resolver: zodResolver(EditPostSchema),
 		defaultValues: {
 			title: "",
 			slug: "",
 			content: "",
-			categoryId: "",
+			categoryId: "6",
 			createdAt: "",
 			userId: authUser?.id,
 		},
@@ -63,7 +56,7 @@ export default function CreatePost() {
 		fetchCategories();
 	}, []);
 
-	const onSubmit = async (data: CreatePostInput) => {
+	const onSubmit = async (data: EditPostInput) => {
 		try {
 			const postSlug = data.title.toLowerCase().replaceAll(" ", "-");
 			const res = await api.post("/blogs", {
@@ -149,23 +142,22 @@ export default function CreatePost() {
 						{errors.content && <ErrorLabel message={errors.content.message} />}
 					</div>
 
-					<div className="flex items-center justify-end gap-x-3 mt-8">
+					<div className="flex items-center gap-x-5">
 						<Button
-							type="button"
-							onPress={() => reset()}
-							color="danger"
+							type="reset"
+							onClick={reset}
+							color="primary"
 							variant="ghost"
-							className="rounded-xl font-semibold">
+							className="w-full flex items-center justify-center gap-2 rounded-xl text-medium font-semibold">
 							<MinusCircleIcon className="size-5" />
-							Cancel
+							<span>Cancel</span>
 						</Button>
-
 						<Button
 							type="submit"
 							color="primary"
-							className="px-8 rounded-xl font-semibold shadow-lg shadow-blue-200">
+							className="w-full flex items-center justify-center gap-2 rounded-xl text-medium font-semibold">
 							<PlusCircleIcon className="size-5" />
-							Publish
+							<span>Publish</span>
 						</Button>
 					</div>
 				</form>

@@ -36,3 +36,7 @@ export const formatBlogDate = (dateString: string) => {
 	// Otherwise, show "Jan 01, 2026" (M D Y format)
 	return format(date, "MMM dd, yyyy");
 };
+
+export const scrollToTop = () => {
+	window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+};

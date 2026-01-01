@@ -1,3 +1,4 @@
+import AuthLayout from "@/layouts/AuthLayout";
 import { IsLogin } from "@/lib/utils";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
@@ -23,5 +24,9 @@ export default function ProtectedRoute() {
 		);
 	}
 
-	return <Outlet />;
+	return (
+		<AuthLayout>
+			<Outlet />
+		</AuthLayout>
+	);
 }

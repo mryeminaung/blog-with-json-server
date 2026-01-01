@@ -1,4 +1,3 @@
-import AuthLayout from "@/layouts/AuthLayout";
 import { api, formatBlogDate } from "@/lib/utils";
 import { Card } from "@heroui/card";
 import { useEffect, useState } from "react";
@@ -35,8 +34,12 @@ export default function FeaturedBlogs() {
 					title: blog.title,
 					content: blog.content,
 					slug: blog.slug,
-					category: categoryObj ? categoryObj.name : "Uncategorized",
-					author: userObj ? userObj.fullName : "Unknown Author",
+					category: categoryObj
+						? { id: categoryObj.id, name: categoryObj.name }
+						: "Uncategorized",
+					author: userObj
+						? { id: userObj.id, fullName: userObj.fullName }
+						: "Unknown Author",
 					createdAt: formatBlogDate(blog.createdAt),
 				};
 			});
@@ -51,31 +54,27 @@ export default function FeaturedBlogs() {
 	}, []);
 
 	return (
-		<AuthLayout>
-			<div className="my-5 space-y-3">
-				<h2 className="text-2xl font-bold">Latest Posts</h2>
-				{latestBlogs ? (
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-						{latestBlogs.map((blog) => (
-							<BlogCard
-								key={blog.id}
-								blog={blog}
-							/>
-						))}
-					</div>
-				) : (
-					<Card className="rounded-xl  border-[0.5px] border-gray-200 shadow flex items-center justify-center py-10 space-y-4">
-						<p className="text-gray-500">
-							No posts yet. Be the first to share!
-						</p>
-						<Link
-							to={"/blogs/create-post"}
-							className="px-7 font-semibold bg-blue-700 rounded-lg text-white py-2">
-							Create the first post
-						</Link>
-					</Card>
-				)}
-			</div>
-		</AuthLayout>
+		<div className="my-5 space-y-3">
+			<h2 className="text-2xl font-bold">Latest Posts</h2>
+			{latestBlogs ? (
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+					{latestBlogs.map((blog) => (
+						<BlogCard
+							key={blog.id}
+							blog={blog}
+						/>
+					))}
+				</div>
+			) : (
+				<Card className="rounded-xl  border-[0.5px] border-gray-200 shadow flex items-center justify-center py-10 space-y-4">
+					<p className="text-gray-500">No posts yet. Be the first to share!</p>
+					<Link
+						to={"/blogs/create-post"}
+						className="px-7 font-semibold bg-blue-700 rounded-lg text-white py-2">
+						Create the first post
+					</Link>
+				</Card>
+			)}
+		</div>
 	);
 }

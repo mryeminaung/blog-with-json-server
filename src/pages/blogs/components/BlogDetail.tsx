@@ -1,90 +1,184 @@
-import axios from "axios";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { useAuthContext } from "../../context/AuthContext";
+import BlogDetailLayout from "@/layouts/BlogDetailLayout";
+import { api, formatBlogDate } from "@/lib/utils";
+import useAuthStore from "@/stores/useAuthStore";
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import {
+	Modal,
+	ModalBody,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	useDisclosure,
+} from "@heroui/modal";
+import { Button, Image, Spinner } from "@heroui/react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-const BlogDetail = () => {
-	const { auth } = useAuthContext();
-	const location = useLocation();
+// Use the interface we defined earlier
+interface BlogInfoType {
+	id: string;
+	title: string;
+	content: string;
+	slug: string;
+	category: { id: string; name: string };
+	author: { id: string; fullName: string };
+	createdAt: string;
+}
+
+export default function BlogDetail() {
+	const { slug } = useParams(); // Get slug from URL
 	const navigate = useNavigate();
-	const { blog, author } = location.state;
-	console.log(author);
-	const search = `${location.state?.search}` || "";
-	const type = location.state?.type || "all";
+	const authUser = useAuthStore((state) => state.authUser);
+	const { isOpen, onOpen, onClose } = useDisclosure();
 
-	const handleDelete = (id) => {
-		if (confirm("Are you sure to delete?")) {
-			axios.delete(`http://localhost:8000/blogs/${id}`);
-			navigate(`/blogs?${search}`);
+	const [blog, setBlog] = useState<BlogInfoType | null>(null);
+	const [loading, setLoading] = useState(true);
+
+	const fetchFullBlogData = async () => {
+		try {
+			setLoading(true);
+			const [blogsRes, categoriesRes, usersRes] = await Promise.all([
+				api.get(`/blogs?slug=${slug}`),
+				api.get("/categories"),
+				api.get("/users"),
+			]);
+
+			const rawBlog = blogsRes.data[0];
+
+			if (rawBlog) {
+				const categoryObj = categoriesRes.data.find(
+					(c: any) => c.id === rawBlog.categoryId,
+				);
+				const userObj = usersRes.data.find((u: any) => u.id === rawBlog.userId);
+
+				setBlog({
+					id: rawBlog.id,
+					title: rawBlog.title,
+					content: rawBlog.content,
+					slug: rawBlog.slug,
+					category: categoryObj || { id: "0", name: "Uncategorized" },
+					author: { id: userObj?.id, fullName: userObj?.fullName || "Unknown" },
+					createdAt: formatBlogDate(rawBlog.createdAt),
+				});
+			}
+		} catch (error) {
+			console.error("Error fetching blog:", error);
+		} finally {
+			setLoading(false);
 		}
 	};
 
+	useEffect(() => {
+		fetchFullBlogData();
+	}, [slug]);
+
+	const handleDelete = async () => {
+		if (!blog) return;
+		const res = await api.delete(`/blogs/${blog.id}`);
+		if (res.status === 200) {
+			onClose();
+			navigate(`/blogs/featured-blogs`);
+		}
+	};
+
+	if (loading)
+		return (
+			<div className="flex justify-center mt-20">
+				<Spinner size="lg" />
+			</div>
+		);
+
+	if (!blog)
+		return (
+			<div className="text-center mt-20 text-xl font-bold">Post Not Found</div>
+		);
+
 	return (
-		blog && (
-			<>
-				{/* return pre page with the type filter effect */}
-				<Link
-					to={`..${type != "all" ? `?${search}` : ""}`}
-					relative="path"
-					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-					Back to {type} blogs
-				</Link>
+		<BlogDetailLayout currentBlogId={blog.id}>
+			<h2 className="text-3xl font-bold">{blog.title}</h2>
 
-				<div className="mt-5 overflow-hidden rounded-lg space-y-3 relative">
+			<div className="mt-5 space-y-6 relative">
+				<Image
+					src="/src/assets/blog-img.jpg"
+					alt="blog img"
+					width={"100%"}
+					className="rounded-xl max-h-100"
+				/>
+				<span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md rounded-lg px-3 py-1 text-white text-[10px] tracking-widest z-10 uppercase font-bold">
+					{blog.category.name}
+				</span>
+			</div>
+
+			<div className="flex flex-col gap-y-3 md:flex-row md:items-center md:justify-between border-b pb-6">
+				<div className="flex items-center gap-x-3">
 					<img
-						src="/src/assets/blog_img.jpg"
-						alt="blog img"
-						className="overflow-hidden rounded-t-lg w-full"
+						src="/src/assets/robot.png"
+						alt="author"
+						className="w-12 h-12 border-2 border-blue-500 rounded-full p-0.5"
 					/>
-
-					<div className="flex items-center justify-between">
-						<div className="flex items-center gap-x-2">
-							<div className="m-2 flex items-center justify-between gap-x-2">
-								<div className="flex items-center flex-row justify-between gap-x-2">
-									<img
-										src={author ? author.avatar : ""}
-										alt=""
-										className="object-fit w-12 h-12 border  border-blue-500 rounded-full"
-									/>
-
-									<div className="flex flex-col w-20 -space-y-0.5 text-[14px]">
-										<span className="dark:text-white font-bold capitalize">
-											{author && author.username}
-										</span>
-										<span className="">{blog.created_at} created_at</span>
-									</div>
-									<span
-										className={`${
-											blog.category === "frontend"
-												? "bg-blue-300"
-												: "bg-red-300"
-										} text-white text-md font-bold me-2 px-2.5 py-0.5 rounded-md dark:bg-blue-900 dark:text-blue-300`}>
-										{blog.category}
-									</span>
-								</div>
-							</div>
-						</div>
-
-						{auth.id === blog.user_id && (
-							<div className="space-x-3">
-								<button className="px-3 py-1 bg-slate-400 rounded-md">
-									Edit
-								</button>
-								<button
-									className="px-3 py-1 bg-slate-400 rounded-md"
-									onClick={() => handleDelete(blog.id)}>
-									Delete
-								</button>
-							</div>
-						)}
-					</div>
-					<div className="px-3">
-						<h2 className="text-2xl font-bold">{blog.title}</h2>
-						<p className="text-xl">{blog.body}</p>
+					<div className="flex flex-col">
+						<span className="font-bold text-gray-900">
+							{blog.author.fullName}
+						</span>
+						<span className="text-sm text-gray-500">{blog.createdAt}</span>
 					</div>
 				</div>
-			</>
-		)
-	);
-};
 
-export default BlogDetail;
+				{authUser?.id === blog.author.id && (
+					<div className="flex gap-2">
+						<Button
+							size="sm"
+							color="warning"
+							variant="flat"
+							className="font-semibold"
+							onPress={() => navigate(`/blogs/${blog.id}/edit-post`)}
+							startContent={<PencilSquareIcon className="size-4" />}>
+							Edit
+						</Button>
+						<Button
+							size="sm"
+							color="danger"
+							variant="flat"
+							className="font-semibold"
+							onPress={onOpen}
+							startContent={<TrashIcon className="size-4" />}>
+							Delete
+						</Button>
+					</div>
+				)}
+			</div>
+
+			<div className="prose prose-blue max-w-none">
+				<p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
+					{blog.content}
+				</p>
+			</div>
+
+			<Modal
+				backdrop="blur"
+				isOpen={isOpen}
+				onClose={onClose}>
+				<ModalContent>
+					<ModalHeader>Confirm Deletion</ModalHeader>
+					<ModalBody>
+						<p className="text-gray-600">
+							Are you sure? This action cannot be undone.
+						</p>
+					</ModalBody>
+					<ModalFooter>
+						<Button
+							variant="light"
+							onPress={onClose}>
+							Cancel
+						</Button>
+						<Button
+							color="danger"
+							onPress={handleDelete}>
+							Delete Permanently
+						</Button>
+					</ModalFooter>
+				</ModalContent>
+			</Modal>
+		</BlogDetailLayout>
+	);
+}
