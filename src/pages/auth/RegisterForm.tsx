@@ -56,6 +56,7 @@ export default function RegisterForm() {
 	};
 
 	if (IsLogin()) return <Navigate to="blogs/featured-blogs" />;
+
 	return (
 		<GuestLayout>
 			<form

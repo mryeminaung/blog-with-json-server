@@ -1,31 +1,72 @@
 {
-	"users": [
-		{
-			"id": "7ad1",
-			"fullName": "Idona Wells",
-			"email": "loroqizi@mailinator.com",
-			"password": "$2b$10$Qoupr0.ZpBE/OW1aWkoVoub39tSIHLocMxyAkDjZa4uhG3q9T9/Zq"
-		},
-		{
-			"id": "6054",
-			"fullName": "Rigel Alford",
-			"email": "lepexoqo@mailinator.com",
-			"password": "$2b$10$Fi5RCuhPnn5jVq6E2vM/kuT1MRcoT4UkJC97n.JqY7DZzXeP1nYxO"
-		},
-		{
-			"id": "02a7",
-			"fullName": "Vernon Livingston",
-			"email": "suzyseq@mailinator.com",
-			"password": "$2b$10$OausUfG4I.OVLdeW.hyySe2ZWXgpaGRzSAH1oNK6IQL/fWViU/MPK"
-		},
-		{
-			"id": "ab4d",
-			"fullName": "Mira Meyers",
-			"email": "tusoquz@mailinator.com",
-			"password": "$2b$10$VAywsOAWFbEew0ambAt4YugTOi2kaVLgw6yDRHFh9Qwopk6CNcQ8q"
-		}
-	],
-	"blogs": [],
-	"comments": [],
-	"category": []
+  "users": [
+    {
+      "id": "7ad1",
+      "fullName": "Idona Wells",
+      "email": "loroqizi@mailinator.com",
+      "password": "$2b$10$Qoupr0.ZpBE/OW1aWkoVoub39tSIHLocMxyAkDjZa4uhG3q9T9/Zq"
+    },
+    {
+      "id": "03d7",
+      "fullName": "Brandon Fuentes",
+      "email": "xykaq@mailinator.com",
+      "password": "$2b$10$xynE/L78rcC4ktthnMJAsel8mXT3.92LCsg.nEnC76tFSjy1av6Nq"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "659e",
+      "title": "Mastering React 19: What's New?",
+      "content": "React 19 has officially landed with some game-changing features. From the new 'use' hook for handling promises to the improved Actions API, development is becoming much more intuitive. In this post, we explore how these changes simplify state management and reduce boilerplate code for modern web applications.",
+      "slug": "mastering-react-19:-what's-new?",
+      "categoryId": "1",
+      "createdAt": "2026-01-01T09:57:11.914Z",
+      "userId": "7ad1"
+    },
+    {
+      "id": "8772",
+      "title": "The Future of Frontend Tooling",
+      "content": "Gone are the days of slow Webpack builds. With tools like Vite and Turbopack taking over, our dev servers start in milliseconds. This post dives into the Rust-based ecosystem that is making our build tools faster and our deployment pipelines more efficient than ever before.",
+      "slug": "the-future-of-frontend-tooling",
+      "categoryId": "6",
+      "createdAt": "2026-01-01T10:33:34.438Z",
+      "userId": "7ad1"
+    },
+    {
+      "id": "273e",
+      "title": "Why I Switched to Tailwind CSS",
+      "content": "Utility-first CSS used to look messy to me, but after building three major projects with Tailwind, I'm never going back. The speed of development and the ability to maintain a consistent design system without writing custom CSS classes is a superpower. Let's look at the performance benefits and developer experience improvements.",
+      "slug": "why-i-switched-to-tailwind-css",
+      "categoryId": "5",
+      "createdAt": "2026-01-01T10:34:51.264Z",
+      "userId": "7ad1"
+    }
+  ],
+  "comments": [],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Technology"
+    },
+    {
+      "id": "2",
+      "name": "Health"
+    },
+    {
+      "id": "3",
+      "name": "Travel"
+    },
+    {
+      "id": "4",
+      "name": "Food"
+    },
+    {
+      "id": "5",
+      "name": "Lifestyle"
+    },
+    {
+      "id": "6",
+      "name": "General"
+    }
+  ]
 }

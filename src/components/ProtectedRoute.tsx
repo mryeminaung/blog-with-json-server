@@ -1,13 +1,23 @@
 import { IsLogin } from "@/lib/utils";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 export default function ProtectedRoute() {
 	const loggedIn = IsLogin();
+	const pathName = useLocation().pathname;
 
 	if (!loggedIn) {
 		return (
 			<Navigate
 				to="/login"
+				replace
+			/>
+		);
+	}
+
+	if (loggedIn && pathName == "/") {
+		return (
+			<Navigate
+				to="/blogs/featured-blogs"
 				replace
 			/>
 		);

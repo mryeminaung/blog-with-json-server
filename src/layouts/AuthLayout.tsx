@@ -9,7 +9,7 @@ export default function AuthLayout({
 	return (
 		<>
 			<MainNav />
-			<main className="border mx-auto px-5">{children}</main>
+			<main className="max-w-5xl mx-auto px-5">{children}</main>
 		</>
 	);
 }

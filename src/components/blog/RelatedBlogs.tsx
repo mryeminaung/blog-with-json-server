@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import RelatedBlogCard from "./RelatedBlogCard";
+import RelatedBlogCard from "../../pages/blogs/components/RelatedBlogCard";
 
 const RelatedBlogs = () => {
     const [relatedBlogs, setRelatedBlogs] = useState();

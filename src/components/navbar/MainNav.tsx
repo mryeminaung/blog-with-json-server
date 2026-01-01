@@ -2,26 +2,11 @@ import { IsLogin } from "@/lib/utils";
 import useAuthStore from "@/stores/useAuthStore";
 import { Button } from "@heroui/button";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
-import { NavLink } from "react-router-dom";
-
-export const AcmeLogo = () => {
-	return (
-		<svg
-			fill="none"
-			height="36"
-			viewBox="0 0 32 32"
-			width="36">
-			<path
-				clipRule="evenodd"
-				d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-				fill="currentColor"
-				fillRule="evenodd"
-			/>
-		</svg>
-	);
-};
+import { Image } from "@heroui/react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function MainNav() {
+	const navigate = useNavigate();
 	const loggedIn = IsLogin();
 	const setAuthUser = useAuthStore((state) => state.setAuthUser);
 
@@ -31,8 +16,13 @@ export default function MainNav() {
 
 	return (
 		<Navbar shouldHideOnScroll={true}>
-			<NavbarBrand>
-				<AcmeLogo />
+			<NavbarBrand
+				className="hover:cursor-pointer flex items-center"
+				onClick={() => navigate("/blogs")}>
+				<Image
+					width={40}
+					src="/src/assets/blog_logo.png"
+				/>
 				<p className="font-bold text-inherit text-xl">PersonalBLOG</p>
 			</NavbarBrand>
 			<NavbarContent
@@ -59,15 +49,26 @@ export default function MainNav() {
 			</NavbarContent>
 			<NavbarContent justify="end">
 				{loggedIn ? (
-					<NavbarItem>
-						<Button
-							onClick={handleLogout}
-							color="primary"
-							variant="ghost"
-							className="text-center px-5">
-							Log Out
-						</Button>
-					</NavbarItem>
+					<>
+						<NavbarItem>
+							<Button
+								onClick={() => navigate("/blogs/create-post")}
+								color="primary"
+								variant="solid"
+								className="text-center px-5 mr-1">
+								Create Post
+							</Button>
+						</NavbarItem>
+						<NavbarItem>
+							<Button
+								onClick={handleLogout}
+								color="primary"
+								variant="ghost"
+								className="text-center px-5">
+								Log Out
+							</Button>
+						</NavbarItem>
+					</>
 				) : (
 					<>
 						<NavbarItem className="hidden lg:flex">
