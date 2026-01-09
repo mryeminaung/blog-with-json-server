@@ -4,11 +4,13 @@ import GuestRoute from "./components/GuestRoute";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginForm from "./pages/auth/LoginForm";
 import RegisterForm from "./pages/auth/RegisterForm";
+import Blogs from "./pages/blogs/Blogs";
 import BlogDetail from "./pages/blogs/components/BlogDetail";
 import CreatePost from "./pages/blogs/CreatePost";
 import EditPost from "./pages/blogs/EditPost";
 import FeaturedBlogs from "./pages/blogs/FeaturedBlogs";
 import NotFound from "./pages/NotFound";
+import SettingPage from "./pages/settings";
 
 const routes = [
 	{
@@ -17,8 +19,12 @@ const routes = [
 		children: [
 			{
 				index: true,
-				path: "blogs/featured-blogs",
+				path: "featured-blogs",
 				element: <FeaturedBlogs />,
+			},
+			{
+				path: "blogs/",
+				element: <Blogs />,
 			},
 			{
 				path: "blogs/create-post",
@@ -31,6 +37,10 @@ const routes = [
 			{
 				path: "blogs/:slug",
 				element: <BlogDetail />,
+			},
+			{
+				path: "settings",
+				element: <SettingPage />,
 			},
 		],
 	},

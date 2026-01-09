@@ -77,7 +77,7 @@ export default function BlogDetail() {
 		const res = await api.delete(`/blogs/${blog.id}`);
 		if (res.status === 200) {
 			onClose();
-			navigate(`/blogs/featured-blogs`);
+			navigate(`/featured-blogs`);
 		}
 	};
 
@@ -148,7 +148,7 @@ export default function BlogDetail() {
 				)}
 			</div>
 
-			<div className="prose prose-blue max-w-none">
+			<div className="prose prose-blue max-w-none mt-5">
 				<p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
 					{blog.content}
 				</p>

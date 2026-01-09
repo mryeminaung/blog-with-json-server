@@ -12,6 +12,7 @@ import {
 import { Button, Image } from "@heroui/react";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import UserMenu from "../UserMenu";
 
 export default function MainNav() {
 	const navigate = useNavigate();
@@ -32,13 +33,13 @@ export default function MainNav() {
 			<NavbarContent>
 				<NavbarMenuToggle
 					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-					className="sm:hidden" // Only shows on mobile
+					className="sm:hidden hover:cursor-pointer" // Only shows on mobile
 				/>
 				<NavbarBrand
 					className="hover:cursor-pointer flex items-center gap-2"
 					onClick={() => navigate("/blogs")}>
 					<Image
-						width={32}
+						width={50}
 						src="/src/assets/blog_logo.png"
 					/>
 					<p className="font-bold text-inherit text-xl hidden xs:block">
@@ -54,7 +55,7 @@ export default function MainNav() {
 					<>
 						<NavbarItem>
 							<NavLink
-								to="/blogs/featured-blogs"
+								to="/featured-blogs"
 								className={({ isActive }) =>
 									isActive ? "text-primary font-semibold" : "text-foreground"
 								}>
@@ -75,43 +76,7 @@ export default function MainNav() {
 			</NavbarContent>
 
 			<NavbarContent justify="end">
-				<div className="hidden sm:flex gap-3">
-					{loggedIn ? (
-						<>
-							<Button
-								onClick={() => navigate("/blogs/create-post")}
-								color="primary"
-								size="sm"
-								className="font-semibold">
-								Create Post
-							</Button>
-							<Button
-								onClick={handleLogout}
-								variant="bordered"
-								size="sm"
-								className="font-semibold">
-								Log Out
-							</Button>
-						</>
-					) : (
-						<>
-							<Button
-								as={NavLink}
-								to="/login"
-								variant="light"
-								size="sm">
-								Login
-							</Button>
-							<Button
-								as={NavLink}
-								to="/register"
-								color="primary"
-								size="sm">
-								Sign Up
-							</Button>
-						</>
-					)}
-				</div>
+				<UserMenu />
 			</NavbarContent>
 
 			<NavbarMenu>
@@ -119,7 +84,7 @@ export default function MainNav() {
 					<>
 						<NavbarMenuItem>
 							<NavLink
-								to="/blogs/featured-blogs"
+								to="/featured-blogs"
 								onClick={() => setIsMenuOpen(false)}
 								className="w-full text-lg py-2 block">
 								Home

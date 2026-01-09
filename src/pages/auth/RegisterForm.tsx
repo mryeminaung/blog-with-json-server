@@ -41,6 +41,7 @@ export default function RegisterForm() {
 				fullName: data.fullName,
 				email: data.email,
 				password: hashPwd,
+				registerAt: new Date().toISOString(),
 			});
 			if (!res.data) {
 				throw new Error("Error occour");
@@ -55,7 +56,7 @@ export default function RegisterForm() {
 		}
 	};
 
-	if (IsLogin()) return <Navigate to="blogs/featured-blogs" />;
+	if (IsLogin()) return <Navigate to="/featured-blogs" />;
 
 	return (
 		<GuestLayout>

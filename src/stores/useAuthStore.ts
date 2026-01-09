@@ -2,12 +2,22 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type State = {
-	authUser: { id: string; fullName: string; email: string } | null;
+	authUser: {
+		id: string;
+		fullName: string;
+		username: string;
+		email: string;
+	} | null;
 };
 
 type Actions = {
 	setAuthUser: (
-		user: { id: string; fullName: string; email: string } | null,
+		user: {
+			id: string;
+			fullName: string;
+			username: string;
+			email: string;
+		} | null,
 	) => void;
 };
 

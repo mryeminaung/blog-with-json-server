@@ -15,7 +15,7 @@ interface BlogType {
 	title: string;
 	content: string;
 	slug: string;
-	categoryId: string;
+	categoryId: number;
 	userId: string;
 	createdAt: string;
 }
@@ -25,7 +25,7 @@ interface BlogInfoType {
 	title: string;
 	content: string;
 	slug: string;
-	category: { id: string; name: string };
+	category: { id: number; name: string };
 	author: { id: string; fullName: string };
 	createdAt: string;
 }

@@ -7,7 +7,7 @@ export default function GuestRoute() {
 	if (loggedIn) {
 		return (
 			<Navigate
-				to="/blogs/featured-blogs"
+				to="/featured-blogs"
 				replace
 			/>
 		);

@@ -27,6 +27,7 @@ type UserInfo = {
 	id: string;
 	fullName: string;
 	email: string;
+	username: string;
 	password: string;
 };
 
@@ -66,13 +67,14 @@ export default function LoginForm() {
 			const isPwdMatch = bcrypt.compareSync(data.password, authUser.password);
 			if (isPwdMatch) {
 				console.log("Login Success");
-				const { id, fullName, email } = authUser;
+				const { id, fullName, email, username } = authUser;
 				setAuthUser({
 					id,
 					fullName,
+					username,
 					email,
 				});
-				navigate("/blogs/featured-blogs");
+				navigate("/featured-blogs");
 			} else {
 				console.error("Invalid Credentials");
 			}
@@ -81,7 +83,7 @@ export default function LoginForm() {
 		}
 	};
 
-	if (IsLogin()) return <Navigate to="/blogs/featured-blogs" />;
+	if (IsLogin()) return <Navigate to="/featured-blogs" />;
 
 	return (
 		<GuestLayout>

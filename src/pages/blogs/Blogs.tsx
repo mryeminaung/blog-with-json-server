@@ -1,17 +1,18 @@
 import { api, formatBlogDate } from "@/lib/utils";
-import { Card } from "@heroui/card";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import BlogCard from "./components/BlogCard";
+import BlogFilter from "./components/BlogFilter";
+import BlogSearch from "./components/BlogSearch";
 
-export default function FeaturedBlogs() {
-	const [latestBlogs, setLatestBlogs] = useState<BlogInfoType[] | null>([]);
+export default function Blogs() {
+	const [filterKey, setFilterKey] = useState("All");
+	const [blogs, setBlogs] = useState<BlogInfoType[] | null>([]);
 
-	const fetchLatestBlogs = async () => {
+	const fetchBlogs = async () => {
 		try {
 			// 1. Fetch all three resources in parallel for better performance
 			const [blogsRes, categoriesRes, usersRes] = await Promise.all([
-				api.get("/blogs?_sort=createdAt&_order=asc&_limit=9"),
+				api.get("/blogs"),
 				api.get("/categories"),
 				api.get("/users"),
 			]);
@@ -43,45 +44,34 @@ export default function FeaturedBlogs() {
 					createdAt: formatBlogDate(blog.createdAt),
 				};
 			});
-			setLatestBlogs(formattedData);
+
+			if (formattedData) {
+				let filteredBlogs =
+					filterKey === "All"
+						? formattedData
+						: formattedData.filter((blog) => blog.category.name === filterKey);
+
+				setBlogs(filteredBlogs);
+			}
 		} catch (error) {
 			console.error("Error formatting blogs:", error);
 		}
 	};
 
 	useEffect(() => {
-		fetchLatestBlogs();
-	}, []);
+		fetchBlogs();
+	}, [filterKey]);
 
 	return (
-		<div className="my-5 space-y-3">
-			<div className="flex items-center justify-between border-b-2 border-b-gray-300 mb-5">
-				<h2 className="text-2xl font-bold">Latest Posts</h2>
-				<Link
-					to={"/blogs"}
-					className="text-lg font-semibold hover:underline hover:text-blue-500 hover:cursor-pointer">
-					See all
-				</Link>
+		<div className="pb-10">
+			<BlogSearch />
+			<BlogFilter
+				filterKey={filterKey}
+				setFilterKey={setFilterKey}
+			/>
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				{blogs && blogs.map((blog) => <BlogCard blog={blog} />)}
 			</div>
-			{latestBlogs ? (
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-					{latestBlogs.map((blog) => (
-						<BlogCard
-							key={blog.id}
-							blog={blog}
-						/>
-					))}
-				</div>
-			) : (
-				<Card className="rounded-xl  border-[0.5px] border-gray-200 shadow flex items-center justify-center py-10 space-y-4">
-					<p className="text-gray-500">No posts yet. Be the first to share!</p>
-					<Link
-						to={"/blogs/create-post"}
-						className="px-7 font-semibold bg-blue-700 rounded-lg text-white py-2">
-						Create the first post
-					</Link>
-				</Card>
-			)}
 		</div>
 	);
 }

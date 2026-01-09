@@ -19,7 +19,7 @@ const CreatePostSchema = z.object({
 		.string()
 		.min(10, { message: "Content is too short (minimum 10 characters)" }),
 	slug: z.string(),
-	categoryId: z.string().min(1, { message: "Please select a category" }),
+	categoryId: z.number().min(1, { message: "Please select a category" }),
 	createdAt: z.string().optional(),
 	userId: z
 		.string()
@@ -48,7 +48,7 @@ export default function CreatePost() {
 			title: "",
 			slug: "",
 			content: "",
-			categoryId: "",
+			categoryId: 6,
 			createdAt: "",
 			userId: authUser?.id,
 		},
@@ -153,7 +153,6 @@ export default function CreatePost() {
 						<Button
 							type="button"
 							onPress={() => reset()}
-							color="danger"
 							variant="ghost"
 							className="rounded-xl font-semibold">
 							<MinusCircleIcon className="size-5" />

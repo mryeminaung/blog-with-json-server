@@ -20,8 +20,8 @@ export default function BlogCard({ blog }: { blog: BlogInfoType }) {
 			</span>
 
 			<div className="p-3">
-				<h2 className="font-bold text-lg line-clamp-1">{blog.title}</h2>
-				<p className="text-[15px] line-clamp-2">{blog.content}</p>
+				<h2 className="font-bold text-md line-clamp-1">{blog.title}</h2>
+				<p className="text-[13px] my-2 line-clamp-2">{blog.content}</p>
 
 				<div className="flex flex-row justify-between items-center gap-x-2 mt-3">
 					<div className="flex flex-row items-center gap-x-2">
@@ -30,13 +30,11 @@ export default function BlogCard({ blog }: { blog: BlogInfoType }) {
 							alt=""
 							className="object-fit w-8 h-8 border  border-blue-500 rounded-full"
 						/>
-						<div className="flex flex-col text-[14px] -space-y-1">
+						<div className="flex flex-col justify-start  text-[14px] -space-y-1">
 							<span className="font-semibold capitalize">
 								{blog.author.fullName}
 							</span>
-							<div className="flex items-center justify-end">
-								<span className="">{blog.createdAt}</span>
-							</div>
+							<span className="">{blog.createdAt}</span>
 						</div>
 					</div>
 

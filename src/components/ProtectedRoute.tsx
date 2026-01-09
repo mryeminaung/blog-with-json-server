@@ -18,7 +18,7 @@ export default function ProtectedRoute() {
 	if (loggedIn && pathName == "/") {
 		return (
 			<Navigate
-				to="/blogs/featured-blogs"
+				to="/featured-blogs"
 				replace
 			/>
 		);
