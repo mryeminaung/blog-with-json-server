@@ -20,7 +20,7 @@ interface BlogType {
 	createdAt: string;
 }
 
-interface BlogInfoType {
+export interface BlogInfoType {
 	id: string;
 	title: string;
 	content: string;
@@ -28,4 +28,16 @@ interface BlogInfoType {
 	category: { id: number; name: string };
 	author: { id: string; fullName: string };
 	createdAt: string;
+}
+
+export interface Author {
+	id: string;
+	name: string;
+}
+
+export interface CommentInfo {
+	id: string;
+	author: Author;
+	updatedAt: string;
+	content: string;
 }

@@ -35,15 +35,6 @@
 	],
 	"blogs": [
 		{
-			"id": "273e",
-			"title": "Why I Switched to Tailwind CSS",
-			"content": "Utility-first CSS used to look messy to me, but after building three major projects with Tailwind, I'm never going back. The speed of development and the ability to maintain a consistent design system without writing custom CSS classes is a superpower. Let's look at the performance benefits and developer experience improvements.",
-			"slug": "why-i-switched-to-tailwind-css",
-			"categoryId": 5,
-			"createdAt": "2026-01-01T10:34:51.264Z",
-			"userId": "7ad1"
-		},
-		{
 			"id": "a101",
 			"title": "Understanding REST API Design",
 			"content": "A well-designed REST API is predictable, consistent, and easy to consume. In this article, we explore resource naming, HTTP verbs, status codes, and versioning strategies.",
@@ -89,20 +80,11 @@
 			"userId": "03d7"
 		},
 		{
-			"id": "b201",
-			"title": "Tailwind CSS vs Traditional CSS",
-			"content": "After working with both approaches, Tailwind offers faster iteration while traditional CSS provides familiarity. The right choice depends on team size and project scope.",
-			"slug": "tailwind-vs-traditional-css",
-			"categoryId": 5,
-			"createdAt": "2026-01-02T09:10:00.000Z",
-			"userId": "7ad1"
-		},
-		{
 			"id": "b202",
 			"title": "Design Systems That Scale",
 			"content": "A scalable design system reduces inconsistency and speeds up development. Tokens, spacing rules, and reusable components are key.",
 			"slug": "design-systems-that-scale",
-			"categoryId": 5,
+			"categoryId": 1,
 			"createdAt": "2026-01-02T10:00:00.000Z",
 			"userId": "7ad1"
 		},
@@ -120,7 +102,7 @@
 			"title": "Frontend Performance Basics",
 			"content": "Performance starts with small optimizations: image sizes, code splitting, and avoiding unnecessary re-renders.",
 			"slug": "frontend-performance-basics",
-			"categoryId": 1,
+			"categoryId": 6,
 			"createdAt": "2026-01-02T12:45:00.000Z",
 			"userId": "7ad1"
 		},
@@ -189,9 +171,9 @@
 		},
 		{
 			"id": "d5c4",
-			"title": "Magnam molestias ad ",
-			"content": "Est minim enim poss",
-			"slug": "magnam-molestias-ad-",
+			"title": "Hello World",
+			"content": "<Item> with non-plain text contents is unsupported by type to select for accessibility. Please add a `textValue` prop.",
+			"slug": "hello-world",
 			"categoryId": 6,
 			"createdAt": "2026-01-09T11:06:45.842Z",
 			"userId": "f065"
@@ -199,10 +181,20 @@
 	],
 	"comments": [
 		{
-			"id": 1,
-			"content": "Hello World",
-			"postId": 1,
-			"userId": 1
+			"id": "13cc",
+			"content": "New Comment is added",
+			"blogId": "b210",
+			"userId": "7ad1",
+			"createdAt": "2026-01-09T16:50:21.517Z",
+			"updatedAt": "2026-01-09T16:50:21.517Z"
+		},
+		{
+			"id": "18c5",
+			"content": "nice one",
+			"blogId": "b210",
+			"userId": "7ad1",
+			"createdAt": "2026-01-09T16:52:14.479Z",
+			"updatedAt": "2026-01-09T16:52:14.479Z"
 		}
 	],
 	"categories": [

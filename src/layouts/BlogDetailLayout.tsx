@@ -15,7 +15,7 @@ export default function BlogDetailLayout({
 			<div className="flex flex-col ">
 				<div className="p-4 w-full rounded-md">{children}</div>
 
-				<div className="w-full">
+				<div className="w-full px-4">
 					{currentBlogId && <RelatedBlogs currentBlogId={currentBlogId} />}
 				</div>
 			</div>

@@ -10,7 +10,7 @@ import CreatePost from "./pages/blogs/CreatePost";
 import EditPost from "./pages/blogs/EditPost";
 import FeaturedBlogs from "./pages/blogs/FeaturedBlogs";
 import NotFound from "./pages/NotFound";
-import SettingPage from "./pages/settings";
+import UserSetting from "./pages/settings/UserSetting";
 
 const routes = [
 	{
@@ -31,7 +31,7 @@ const routes = [
 				element: <CreatePost />,
 			},
 			{
-				path: "blogs/:id/edit-post",
+				path: "blogs/:blogId/edit-post",
 				element: <EditPost />,
 			},
 			{
@@ -40,7 +40,7 @@ const routes = [
 			},
 			{
 				path: "settings",
-				element: <SettingPage />,
+				element: <UserSetting />,
 			},
 		],
 	},

@@ -1,4 +1,5 @@
 import { api, formatBlogDate } from "@/lib/utils";
+import { BlogInfoType } from "@/types/index";
 import { useEffect, useState } from "react";
 import BlogCard from "./components/BlogCard";
 import BlogFilter from "./components/BlogFilter";
@@ -20,13 +21,13 @@ export default function Blogs() {
 			const blogs = blogsRes.data;
 			const categories = categoriesRes.data;
 			const users = usersRes.data;
-
 			// 2. Map and format the data to match BlogInfoType
 			const formattedData: BlogInfoType[] = blogs.map((blog: any) => {
 				// Find the name for the category ID
 				const categoryObj = categories.find(
 					(c: any) => c.id === blog.categoryId,
 				);
+
 				// Find the name for the user ID
 				const userObj = users.find((u: any) => u.id === blog.userId);
 
@@ -44,13 +45,11 @@ export default function Blogs() {
 					createdAt: formatBlogDate(blog.createdAt),
 				};
 			});
-
 			if (formattedData) {
 				let filteredBlogs =
 					filterKey === "All"
 						? formattedData
 						: formattedData.filter((blog) => blog.category.name === filterKey);
-
 				setBlogs(filteredBlogs);
 			}
 		} catch (error) {
@@ -70,7 +69,13 @@ export default function Blogs() {
 				setFilterKey={setFilterKey}
 			/>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				{blogs && blogs.map((blog) => <BlogCard blog={blog} />)}
+				{blogs &&
+					blogs.map((blog) => (
+						<BlogCard
+							key={blog.id}
+							blog={blog}
+						/>
+					))}
 			</div>
 		</div>
 	);

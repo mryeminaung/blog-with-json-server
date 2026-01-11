@@ -43,17 +43,20 @@ export default function UserMenu() {
 					aria-label="User Actions"
 					variant="shadow">
 					<DropdownItem
+						textValue="profile"
 						key="profile"
 						className="h-14 gap-2">
 						<p className="font-bold">Signed in as</p>
 						<p className="font-bold">@{authUser?.username}</p>
 					</DropdownItem>
 					<DropdownItem
+						textValue="system"
 						onClick={() => navigate("blogs/create-post")}
 						key="system">
 						New Post
 					</DropdownItem>
 					<DropdownItem
+						textValue="settings"
 						onClick={() => navigate("/settings")}
 						key="settings">
 						Settings

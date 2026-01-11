@@ -1,6 +1,8 @@
+import CommentBox from "@/components/CommentBox";
 import BlogDetailLayout from "@/layouts/BlogDetailLayout";
 import { api, formatBlogDate } from "@/lib/utils";
 import useAuthStore from "@/stores/useAuthStore";
+import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import {
 	Modal,
@@ -95,9 +97,16 @@ export default function BlogDetail() {
 
 	return (
 		<BlogDetailLayout currentBlogId={blog.id}>
-			<h2 className="text-3xl font-bold">{blog.title}</h2>
+			<Button
+				onPress={() => navigate("/blogs")}
+				variant="ghost"
+				color="primary">
+				<ArrowLeftIcon className="size-4" />
+				Back to Blogs
+			</Button>
+			<h2 className="text-3xl my-3 font-bold">{blog.title}</h2>
 
-			<div className="mt-5 space-y-6 relative">
+			<div className="space-y-5 relative">
 				<Image
 					src="/src/assets/blog-img.jpg"
 					alt="blog img"
@@ -153,6 +162,8 @@ export default function BlogDetail() {
 					{blog.content}
 				</p>
 			</div>
+
+			<CommentBox blogId={blog.id} />
 
 			<Modal
 				backdrop="blur"
