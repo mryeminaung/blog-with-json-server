@@ -1,8 +1,40 @@
-# React + Vite
+# Lightweight Blogging Application with JSON Server
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, lightweight blogging application that uses **JSON Server** as a mock REST API backend. This project is designed to demonstrate how to interact with a RESTful service to perform CRUD operations (Create, Read, Update, Delete) without the need for a complex database setup.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Full CRUD Support**: Create new posts, read existing ones, update content, and delete entries.
+- **Mock Backend**: Uses `json-server` to simulate a real-world API environment.
+- **Persistent Storage**: All changes are automatically saved to a local `db.json` file.
+- **Easy Setup**: Get up and running in minutes.
+
+## Installation & Setup
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/mryeminaung/blog-with-json-server.git
+    cd blog-with-json-server
+    ```
+
+2.  **Install the dependencies:**
+    _(Assuming you have Node.js installed)_
+
+    ```bash
+    npm install
+    ```
+
+3.  **Start the JSON Server:**
+    This command starts the mock API on port 8000:
+
+    ```bash
+    npm run serve-json
+    ```
+
+4.  **Launch the App:**
+    This command runs the App on port 3000:
+    ```bash
+    npm run dev
+    ```
+    Open `localhost:3000` in your favorite browser
