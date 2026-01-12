@@ -1,4 +1,5 @@
 import { api, formatBlogDate } from "@/lib/utils";
+import { BlogInfoType } from "@/types";
 import { Card } from "@heroui/card";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ export default function FeaturedBlogs() {
 
 	const fetchLatestBlogs = async () => {
 		try {
-			// 1. Fetch all three resources in parallel for better performance
+			// Fetch all three resources in parallel for better performance
 			const [blogsRes, categoriesRes, usersRes] = await Promise.all([
 				api.get("/blogs?_sort=createdAt&_order=asc&_limit=9"),
 				api.get("/categories"),
@@ -19,15 +20,14 @@ export default function FeaturedBlogs() {
 			const blogs = blogsRes.data;
 			const categories = categoriesRes.data;
 			const users = usersRes.data;
-
-			// 2. Map and format the data to match BlogInfoType
+			// Map and format the data to match BlogInfoType
 			const formattedData: BlogInfoType[] = blogs.map((blog: any) => {
 				// Find the name for the category ID
 				const categoryObj = categories.find(
-					(c: any) => c.id === blog.categoryId,
+					(c: any) => c.id == blog.categoryId,
 				);
 				// Find the name for the user ID
-				const userObj = users.find((u: any) => u.id === blog.userId);
+				const userObj = users.find((u: any) => u.id == blog.userId);
 
 				return {
 					id: blog.id,

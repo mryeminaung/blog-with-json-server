@@ -11,7 +11,7 @@ export default function Blogs() {
 
 	const fetchBlogs = async () => {
 		try {
-			// 1. Fetch all three resources in parallel for better performance
+			// Fetch all three resources in parallel for better performance
 			const [blogsRes, categoriesRes, usersRes] = await Promise.all([
 				api.get("/blogs"),
 				api.get("/categories"),
@@ -21,15 +21,14 @@ export default function Blogs() {
 			const blogs = blogsRes.data;
 			const categories = categoriesRes.data;
 			const users = usersRes.data;
-			// 2. Map and format the data to match BlogInfoType
+			// Map and format the data to match BlogInfoType
 			const formattedData: BlogInfoType[] = blogs.map((blog: any) => {
 				// Find the name for the category ID
 				const categoryObj = categories.find(
-					(c: any) => c.id === blog.categoryId,
+					(c: any) => c.id == blog.categoryId,
 				);
-
 				// Find the name for the user ID
-				const userObj = users.find((u: any) => u.id === blog.userId);
+				const userObj = users.find((u: any) => u.id == blog.userId);
 
 				return {
 					id: blog.id,
