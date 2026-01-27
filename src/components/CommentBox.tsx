@@ -52,10 +52,8 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 			const comments = commentsRes.data;
 			const users = usersRes.data;
 
-			const formattedComments = comments.map((comment) => {
-				// console.log(comment.userId);
-				const userData = users.find((u) => u.id === comment.userId);
-				// console.log(userData);
+			const formattedComments = comments.map((comment: any) => {
+				const userData = users.find((u: any) => u.id === comment.userId);
 
 				return {
 					id: comment.id,
@@ -68,6 +66,7 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 				};
 			});
 			// console.log(formattedComments);
+			setComments(formattedComments);
 		} catch (error) {
 			console.error("Fetch error:", error);
 			return [];
@@ -100,7 +99,12 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 			<h3 className="text-xl font-semibold mb-3">Comments ({blogId})</h3>
 
 			<div className="space-y-3">
-				<CommentItem />
+				{comments.map((comment) => (
+					<CommentItem
+						key={comment.id}
+						comment={comment}
+					/>
+				))}
 			</div>
 
 			<div className="">
