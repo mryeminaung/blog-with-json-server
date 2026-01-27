@@ -47,7 +47,7 @@ export default function UserMenu() {
 						key="profile"
 						className="h-14 gap-2">
 						<p className="font-bold">Signed in as</p>
-						<p className="font-bold">@{authUser?.username}</p>
+						<p className="font-bold">@anynomous</p>
 					</DropdownItem>
 					<DropdownItem
 						textValue="system"

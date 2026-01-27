@@ -19,7 +19,7 @@ const CreatePostSchema = z.object({
 		.string()
 		.min(10, { message: "Content is too short (minimum 10 characters)" }),
 	slug: z.string(),
-	categoryId: z.number().min(1, { message: "Please select a category" }),
+	categoryId: z.string().min(1, { message: "Please select a category" }),
 	createdAt: z.string().optional(),
 	userId: z
 		.string()
@@ -29,7 +29,7 @@ const CreatePostSchema = z.object({
 type CreatePostInput = z.infer<typeof CreatePostSchema>;
 
 type CategoryType = {
-	id: number;
+	id: string;
 	name: string;
 };
 
@@ -48,7 +48,7 @@ export default function CreatePost() {
 			title: "",
 			slug: "",
 			content: "",
-			categoryId: 6,
+			categoryId: "6",
 			createdAt: "",
 			userId: authUser?.id,
 		},
@@ -68,6 +68,7 @@ export default function CreatePost() {
 			const postSlug = data.title.toLowerCase().replaceAll(" ", "-");
 			const res = await api.post("/blogs", {
 				...data,
+				categoryId: Number(data.categoryId),
 				slug: postSlug,
 				createdAt: new Date().toISOString(),
 			});

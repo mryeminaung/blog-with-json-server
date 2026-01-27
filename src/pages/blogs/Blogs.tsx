@@ -1,17 +1,20 @@
 import { api, formatBlogDate } from "@/lib/utils";
 import { BlogInfoType } from "@/types/index";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BlogCard from "./components/BlogCard";
 import BlogFilter from "./components/BlogFilter";
 import BlogSearch from "./components/BlogSearch";
 
 export default function Blogs() {
 	const [filterKey, setFilterKey] = useState("All");
+	const [searchQuery, setSearchQuery] = useState("");
 	const [blogs, setBlogs] = useState<BlogInfoType[] | null>([]);
+	const [allBlogs, setAllBlogs] = useState<BlogInfoType[]>([]);
+	const [isSearching, setIsSearching] = useState(false);
+	const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
 	const fetchBlogs = async () => {
 		try {
-			// Fetch all three resources in parallel for better performance
 			const [blogsRes, categoriesRes, usersRes] = await Promise.all([
 				api.get("/blogs"),
 				api.get("/categories"),
@@ -21,13 +24,11 @@ export default function Blogs() {
 			const blogs = blogsRes.data;
 			const categories = categoriesRes.data;
 			const users = usersRes.data;
-			// Map and format the data to match BlogInfoType
+
 			const formattedData: BlogInfoType[] = blogs.map((blog: any) => {
-				// Find the name for the category ID
 				const categoryObj = categories.find(
 					(c: any) => c.id == blog.categoryId,
 				);
-				// Find the name for the user ID
 				const userObj = users.find((u: any) => u.id == blog.userId);
 
 				return {
@@ -44,16 +45,47 @@ export default function Blogs() {
 					createdAt: formatBlogDate(blog.createdAt),
 				};
 			});
-			if (formattedData) {
-				let filteredBlogs =
-					filterKey === "All"
-						? formattedData
-						: formattedData.filter((blog) => blog.category.name === filterKey);
-				setBlogs(filteredBlogs);
-			}
+
+			setAllBlogs(formattedData);
+			filterAndSearchBlogs(formattedData, filterKey, searchQuery);
 		} catch (error) {
 			console.error("Error formatting blogs:", error);
 		}
+	};
+
+	const filterAndSearchBlogs = (
+		data: BlogInfoType[],
+		filter: string,
+		search: string,
+	) => {
+		let filtered =
+			filter === "All"
+				? data
+				: data.filter((blog) => blog.category.name === filter);
+
+		if (search.trim()) {
+			filtered = filtered.filter(
+				(blog) =>
+					blog.title.toLowerCase().includes(search.toLowerCase()) ||
+					blog.content.toLowerCase().includes(search.toLowerCase()),
+			);
+		}
+
+		setBlogs(filtered);
+	};
+
+	const handleSearch = (query: string) => {
+		setSearchQuery(query);
+		setIsSearching(true);
+
+		if (debounceTimer.current) {
+			clearTimeout(debounceTimer.current);
+		}
+
+		debounceTimer.current = setTimeout(() => {
+			filterAndSearchBlogs(allBlogs, filterKey, query);
+			setIsSearching(false);
+		}, 300);
 	};
 
 	useEffect(() => {
@@ -62,19 +94,30 @@ export default function Blogs() {
 
 	return (
 		<div className="pb-10">
-			<BlogSearch />
+			<BlogSearch
+				onSearch={handleSearch}
+				isLoading={isSearching}
+			/>
 			<BlogFilter
 				filterKey={filterKey}
 				setFilterKey={setFilterKey}
 			/>
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				{blogs &&
+			<div
+				className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300 ${
+					isSearching ? "opacity-70" : "opacity-100"
+				}`}>
+				{blogs && blogs.length > 0 ? (
 					blogs.map((blog) => (
 						<BlogCard
 							key={blog.id}
 							blog={blog}
 						/>
-					))}
+					))
+				) : (
+					<div className="col-span-full text-center py-12">
+						<p className="text-gray-500 text-lg">No blogs found</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);

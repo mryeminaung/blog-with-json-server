@@ -76,10 +76,22 @@ export default function BlogDetail() {
 
 	const handleDelete = async () => {
 		if (!blog) return;
-		const res = await api.delete(`/blogs/${blog.id}`);
-		if (res.status === 200) {
-			onClose();
-			navigate(`/featured-blogs`);
+		try {
+			// Delete all comments associated with this blog
+			const commentsRes = await api.get(`/comments?blogId=${blog.id}`);
+			const deleteCommentPromises = commentsRes.data.map((comment: any) =>
+				api.delete(`/comments/${comment.id}`),
+			);
+			await Promise.all(deleteCommentPromises);
+
+			// Delete the blog
+			const res = await api.delete(`/blogs/${blog.id}`);
+			if (res.status === 200) {
+				onClose();
+				navigate(`/featured-blogs`);
+			}
+		} catch (error) {
+			console.error("Error deleting blog:", error);
 		}
 	};
 

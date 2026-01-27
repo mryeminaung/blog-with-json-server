@@ -15,7 +15,7 @@ export default function CommentItem({ comment }: Props) {
 		<div className="border-b border-border pb-6 border-b-gray-300 last:border-b-0">
 			<div className="flex gap-x-3">
 				<Image
-					className="w-10 h-10 rounded-full shrink-0"
+					className="w-10 h-10 rounded-full ring-2 ring-slate-500 shrink-0"
 					src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
 				/>
 				<div className="flex-1 min-w-0">

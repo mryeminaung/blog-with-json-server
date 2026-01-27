@@ -65,7 +65,6 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 					},
 				};
 			});
-			// console.log(formattedComments);
 			setComments(formattedComments);
 		} catch (error) {
 			console.error("Fetch error:", error);
@@ -86,6 +85,7 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 			});
 			if (res.data) {
 				reset();
+				fetchBlogComments();
 			} else {
 				console.error("Error");
 			}
@@ -96,15 +96,28 @@ export default function CommentBox({ blogId }: { blogId: string }) {
 
 	return (
 		<div className="my-5 border-b pb-6 border-gray-300">
-			<h3 className="text-xl font-semibold mb-3">Comments ({blogId})</h3>
+			<h3 className="text-xl font-semibold mb-3 space-x-3">
+				<span>Comments</span>
+				{comments.length > 0 && (
+					<span className="bg-gray-500 px-2 rounded-full text-sm py-1 text-white">
+						{comments.length}
+					</span>
+				)}
+			</h3>
 
 			<div className="space-y-3">
-				{comments.map((comment) => (
-					<CommentItem
-						key={comment.id}
-						comment={comment}
-					/>
-				))}
+				{comments.length === 0 ? (
+					<p className="p-10 mb-3 text-center border text-sm rounded-xl border-gray-100 hover:border-gray-300">
+						Be the first to share your thoughts!
+					</p>
+				) : (
+					comments.map((comment) => (
+						<CommentItem
+							key={comment.id}
+							comment={comment}
+						/>
+					))
+				)}
 			</div>
 
 			<div className="">
